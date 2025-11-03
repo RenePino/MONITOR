@@ -1,5 +1,5 @@
 // Socket.io IP Configuracion.
-const socket = io('http://10.151.187.188:3000'); 
+const socket = io('http://10.247.92.188:3000'); 
 
 // Constantes
 const connText = document.getElementById('connection-text');
@@ -22,7 +22,7 @@ const cardMap = {
 socket.on('connect', () => {
     connText.innerHTML = '<i class="fas fa-circle" style="color:#0f0"></i> Conectado';
     // Obtenemos los datos del api y el server también emite cada 5s
-    fetch('/api/sistema').then(r => r.json()).then(data => handleData(data)).catch(()=>{});
+    fetch('http://10.247.92.188:3000/api/sistema').then(r => r.json()).then(data => handleData(data)).catch(()=>{});
 });
 socket.on('disconnect', () => connText.innerHTML = '<i class="fas fa-circle" style="color:#f33"></i> Desconectado');
 socket.on('datosSistema', (datos) => handleData(datos));
@@ -147,3 +147,4 @@ saveSettingsBtn.addEventListener('click', () => {
     applyVisibilityFromSettings();
     closeSettings();
 });
+
