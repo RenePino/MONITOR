@@ -5,6 +5,18 @@
     --text: #eee;
 }
 
+/* Tema claro */
+[data-theme="light"] {
+    --bg: #f0f0f0;
+    --card: #ffffff;
+    --text: #333;
+}
+
+/* Colores de estado */
+.status-normal { color: #2ecc71 !important; }
+.status-warning { color: #f1c40f !important; }
+.status-danger { color: #e74c3c !important; }
+
 *{box-sizing:border-box}
 body{
     margin:0;
@@ -13,6 +25,7 @@ body{
     background:var(--bg);
     color:var(--text);
     min-height:100vh;
+    transition: all 0.3s ease;
 }
 
 .sidebar{
@@ -28,7 +41,18 @@ body{
 
 .main-content{flex:1;padding:18px}
 .status-bar{display:flex;justify-content:space-between;margin-bottom:12px;padding:8px;background:#121212;border-radius:8px}
-.data-card{background:var(--card);padding:14px;border-radius:8px;margin-bottom:12px}
+.data-card{
+    background:var(--card);
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:12px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.data-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 .card-header h2{margin:0;font-size:16px}
 .data-body p{margin:6px 0;font-size:14px}
 
@@ -41,9 +65,60 @@ body{
 .btn-primary{background:var(--accent);color:#001;padding:8px 12px;border:none;border-radius:6px;cursor:pointer}
 .btn-secondary{background:#333;color:var(--text);padding:8px 12px;border:none;border-radius:6px;cursor:pointer}
 
+/* Theme Switch */
+.theme-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--text);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+.theme-switch:hover {
+    transform: rotate(180deg);
+    background: var(--accent);
+}
+
+/* Credits */
+.credits {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--text);
+    opacity: 0.7;
+    padding: 5px 10px;
+    background: var(--card);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Data Grid Layout */
+#data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 15px 0;
+}
+.full-width {
+    grid-column: 1 / -1;
+}
+
 /* responsive */
 @media(max-width:800px){
     .sidebar{width:100%;display:flex;flex-direction:row;gap:8px;overflow:auto}
     body{flex-direction:column}
     .main-content{padding:12px}
+    .theme-switch {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+    }
+    .credits {
+        bottom: 60px;
+    }
 }
