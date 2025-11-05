@@ -40,6 +40,10 @@ themeBtn.addEventListener('click', toggleTheme);
 // ----- Conexión y recepción -----
 socket.on('connect', () => {
     connText.innerHTML = '<i class="fas fa-circle" style="color:#0f0"></i> Conectado';
+<<<<<<< HEAD
+=======
+    // Obtenemos los datos del api y el server también emite cada 5s
+>>>>>>> fd8ff4d585f9005ed44bf12acdd87e366378eaa0
     fetch('http://10.247.92.188:3000/api/sistema').then(r => r.json()).then(data => handleData(data)).catch(()=>{});
 });
 socket.on('disconnect', () => connText.innerHTML = '<i class="fas fa-circle" style="color:#f33"></i> Desconectado');
@@ -255,4 +259,9 @@ saveSettingsBtn.addEventListener('click', () => {
     localStorage.setItem('settings', JSON.stringify(newS));
     applyVisibilityFromSettings();
     closeSettings();
+<<<<<<< HEAD
 });
+=======
+});
+
+>>>>>>> fd8ff4d585f9005ed44bf12acdd87e366378eaa0
