@@ -256,9 +256,4 @@ saveSettingsBtn.addEventListener('click', () => {
     localStorage.setItem('settings', JSON.stringify(newS));
     applyVisibilityFromSettings();
     closeSettings();
-<<<<<<< HEAD
 });
-=======
-});
-
->>>>>>> fd8ff4d585f9005ed44bf12acdd87e366378eaa0
